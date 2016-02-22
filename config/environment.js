@@ -16,13 +16,15 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-      API_HOST: 'http://192.168.1.37:3000' // default setting
+      API_HOST: 'http://192.168.1.37:3000', // default setting
+      TOKEN_ENDPOINT: 'http://192.168.1.37:3000/users/sign_in'
     }
   };
 
   if (environment === 'development') {
     ENV.APP.LOG_TRANSITIONS = true;
     ENV.APP.API_HOST = 'http://192.168.1.37:3000'; // override
+    ENV.APP.TOKEN_ENDPOINT = 'http://192.168.1.37:3000/users/sign_in';
   }
 
 
@@ -41,6 +43,7 @@ module.exports = function(environment) {
   if (environment === 'production') {
     ENV.APP.LOG_TRANSITIONS = true;
     ENV.APP.API_HOST = 'http://janus-api.herokuapp.com';
+    ENV.APP.TOKEN_ENDPOINT = 'http://janus-api.herokuapp.com/users/sign_in';
   }
 
   return ENV;
