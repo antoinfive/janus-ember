@@ -16,16 +16,15 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+      API_HOST: 'http://192.168.1.37:3000' // default setting
     }
   };
 
   if (environment === 'development') {
-    // ENV.APP.LOG_RESOLVER = true;
-    // ENV.APP.LOG_ACTIVE_GENERATION = true;
-    // ENV.APP.LOG_TRANSITIONS = true;
-    // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
-    // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.APP.LOG_TRANSITIONS = true;
+    ENV.APP.API_HOST = 'http://192.168.1.37:3000'; // override
   }
+
 
   if (environment === 'test') {
     // Testem prefers this...
@@ -40,7 +39,8 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.APP.LOG_TRANSITIONS = true;
+    ENV.APP.API_HOST = 'http://janus-api.herokuapp.com';
   }
 
   return ENV;
