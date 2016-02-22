@@ -1,0 +1,23 @@
+<div class="container">
+  <h2 id="title">Welcome to Janus</h2>
+  <div class="row">
+    <div class="col-xs-3">
+      <div class="list-group table-of-contents">
+        {{#if session.isAuthenticated}}
+          <a class = "list-group-item"{{action 'invalidateSession'}}>Logout</a>
+          {{link-to 'Dashboard' 'dashboard' class="list-group-item"}}
+          {{link-to 'Projects' 'projects' class="list-group-item"}}
+          {{link-to 'Snippets' 'snippets' class="list-group-item"}}
+          {{link-to 'Bookmarks' 'bookmarks' class="list-group-item"}}
+        {{else}}
+          {{#link-to 'login' class="list-group-item"}}Login{{/link-to}}
+        {{/if}}
+      </div>
+    </div>
+    <div class="col-xs-9">
+      <div class="main">
+        {{outlet}}
+      </div>
+    </div>
+  </div>
+</div>

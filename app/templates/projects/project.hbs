@@ -1,0 +1,20 @@
+{{#if isEditing}}
+  {{manage-project project=model onSubmit="editProject"}}
+{{else}}
+  {{dashboard-project-header project=model}}
+  <div class="row">
+    <div class="col-lg-6">
+      <button type="button" class="btn btn-lg btn-warning full-width"{{action "edit"}}>Edit</button>
+    </div>
+    <div class="col-lg-6">
+      <button type="button" class="btn btn-lg btn-danger full-width"{{action "destroy"}}>Delete</button>
+    </div>
+  </div>
+
+
+  {{project-stories project=model}}
+  {{outlet}}
+
+
+
+{{/if}}
