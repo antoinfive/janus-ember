@@ -1,0 +1,26 @@
+{{outlet}}
+
+<div class="col-xs-6">
+  <h2>Sign Up for Janus</h2>
+  <div class="well bs-component">
+
+    <form {{action 'signUp' on='submit'}} class="form-horizontal">
+        <label for="identification">Email</label>
+        {{input id='identification' placeholder='Enter Email' value=model.email type="email" class="form-control"}}
+        <label for="password">Password</label>
+        {{input id='password' placeholder='Enter Password' type='password' value=model.password class="form-control"}}
+        <label for="confirmPassword">Password Confirmation</label>
+        {{input id='confirmPassword' placeholder='Confrim Password' type='password' value=model.password_confirmation class="form-control"}}
+        <label for="username">Desired Username</label>
+        {{input id='username' placeholder='Username' type='text' value=model.username class="form-control"}}
+        <div class="form-group">
+          <div class="col-xs-12">
+            <button type="submit" class="btn btn-default">Sign Up</button>
+            {{#if errorMessage}}
+              <p>{{errorMessage}}</p>
+            {{/if}}
+          </div>
+        </div>
+    </form>
+  </div>
+</div>
