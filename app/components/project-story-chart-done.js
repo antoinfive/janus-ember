@@ -3,10 +3,9 @@ import Ember from 'ember';
 export default Ember.Component.extend({
 
   data:  Ember.computed('project.stories.@each.state', function(){
-    var colors = []
-    var stories = this.get('project').get('stories').filterBy('state', 'done');
+    var stories = this.get('project').get('done');
     var datasets = [];
-    var storyData = {
+    var defaultData = {
       value: 1,
       color:"#464545",
       highlight: "#2c2c2c",
@@ -24,7 +23,7 @@ export default Ember.Component.extend({
       datasets.push(storyData);
     });
     if (datasets.length === 0) {
-        datasets.push(storyData);
+        datasets.push(defaultData);
     }
     return datasets;
   })
