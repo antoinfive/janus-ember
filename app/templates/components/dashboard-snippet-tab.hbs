@@ -1,11 +1,11 @@
 <div class="bs-component">
   <div class="list-group">
     <div class="list-group-item active">
-      <strong>Projects</strong>
+      <strong>Snippets</strong>
     </div>
     {{#each projects as |project|}}
       <div class="list-group-item">
-        {{project-preview project=project}}
+        <!-- {{project-preview project=project}} -->
       </div>
     {{else}}
       {{#link-to "snippets.new" class="btn btn-success btn-large"}}
