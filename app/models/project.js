@@ -46,4 +46,7 @@ export default DS.Model.extend({
   activeStories: function(){
     return this.get("stories").map((story)=>{if (story.get('state') !== "dropped"){return story;}}).filter(function(val) { return val !== undefined; });
   }.property('stories.@each.state'),
+  currentStories: function(){
+    return this.get("doing").concat(this.get("todo"))
+  }.property('todo.@each.state')
 });
