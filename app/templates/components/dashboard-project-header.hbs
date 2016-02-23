@@ -8,7 +8,7 @@
       </div>
       <div class="col-xs-3">
         <div class="well well-sm">
-          <strong class="project-status text-center">{{project.state}}</strong> 
+          <strong class="project-status text-center">{{project.state}}</strong>
         </div>
       </div>
     </div>
@@ -17,7 +17,23 @@
     <p>{{project.description}}</p>
     <p><a href="{{project.github}}">Github</a></p>
   </div>
-  {{project-progress project=project}}
+  <div class="well well-sm">
+    {{project-progress project=project}}
+  </div>
+  <div class="well well-sm">
+    <div class="row">
+      <div class="col-xs-4">
+        {{project-story-chart-icebox project=project}}
+      </div>
+      <div class="col-xs-4">
+        {{project-story-chart-current project=project}}
+      </div>
+      <div class="col-xs-4">
+        {{project-story-chart-done project=project}}
+      </div>
+    </div>
+
+  </div>
   {{link-to "Project Details" "projects.project" project.id class="btn btn-primary"}}
 </div>
 {{yield}}
