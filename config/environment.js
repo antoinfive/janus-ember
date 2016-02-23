@@ -23,8 +23,8 @@ module.exports = function(environment) {
 
   if (environment === 'development') {
     ENV.APP.LOG_TRANSITIONS = true;
-    ENV.APP.API_HOST = 'http://192.168.1.37:3000'; // override
-    ENV.APP.TOKEN_ENDPOINT = 'http://192.168.1.37:3000/users/sign_in';
+    ENV.APP.API_HOST = 'http://localhost:3000'; // override
+    ENV.APP.TOKEN_ENDPOINT = 'http://localhost:3000/users/sign_in';
   }
 
 

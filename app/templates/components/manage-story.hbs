@@ -9,6 +9,10 @@
     {{input value=story.description class="form-control modal-input" id="story-description"}}
   </div>
   <div class="form-group">
+    <label for="story-state">State</label>
+    {{view "select" content=statuses value=story.state id="story-state" class="form-control"}}
+  </div>
+  <div class="form-group">
     <label for="story-points">Points</label>
     <span class="modal-input">{{view "select" content=points value=story.points id="story-points" class="form-control"}}</span>
   </div>
