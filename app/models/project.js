@@ -17,9 +17,10 @@ export default DS.Model.extend({
     }
   }.property('github_link'),
   progress: function(){
-    var total = 0;
-    var complete = 0;
-    this.get("stories").forEach((story)=>{
+    let total = 0;
+    let complete = 0;
+    let stories = this.get("activeStories");
+    stories.forEach((story)=>{
       total += story.get('points');
       if(story.get('state') === "done"){
         complete += story.get('points');
@@ -41,5 +42,8 @@ export default DS.Model.extend({
   }.property('stories.@each.state'),
   dropped: function(){
     return this.get("stories").map((story)=>{if (story.get('state') === "dropped"){return story;}}).filter(function(val) { return val !== undefined; });
-  }.property('stories.@each.state')
+  }.property('stories.@each.state'),
+  activeStories: function(){
+    return this.get("stories").map((story)=>{if (story.get('state') !== "dropped"){return story;}}).filter(function(val) { return val !== undefined; });
+  }.property('stories.@each.state'),
 });
