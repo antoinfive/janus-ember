@@ -7,14 +7,23 @@
       {{#each stories as |story|}}
         {{#draggable-item content=story.id}}
           <li class="list-group-item">
-            {{story.name}}
             <div class="row">
-              <div class="col-xs-6">
-                {{link-to "See Story" "projects.project.stories.story" story class="btn btn-xs btn-primary"}}
-              </div>
-              <div class="col-xs-6">
-                <button type="button" name="button" class="btn btn-xs btn-danger">Drop</button>
-              </div>
+              {{#if noDrop}}
+                <div class="col-md-6">
+                  {{story.name}}
+                </div>
+                <div class="col-md-6">
+                  {{link-to "See Story" "projects.project.stories.story" story class="btn btn-md btn-primary"}}
+                </div>
+              {{else}}
+                {{story.name}}
+                <div class="col-xs-6">
+                  {{link-to "See Story" "projects.project.stories.story" story class="btn btn-xs btn-primary"}}
+                </div>
+                <div class="col-xs-6">
+                  <button type="button" name="button" class="btn btn-xs btn-danger" {{action 'showDropModal' story.id story.name}}>Drop</button>
+                </div>
+              {{/if}}
             </div>
           </li>
         {{/draggable-item}}

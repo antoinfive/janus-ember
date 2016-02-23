@@ -5,26 +5,39 @@
     </div>
   {{/modal-dialog}}
 {{/if}}
+{{#if dropModal}}
+  {{#modal-dialog translucentOverlay=true close='closeDropModal' container-class='ember-small-modal' overlay-class='modal-form' id='ember-small-modal'}}
+    <div id="modal-container" class="container">
+      <p class="text-center">
+        Are you sure you want to drop the story: "{{dropStoryName}}"?
+      </p>
+      <div class="text-center pad-top">
+        <button type="button" name="button" class="btn btn-warning" {{action 'closeDropModal'}}>Canel</button>
+        <button type="button" name="button" class="btn btn-danger" {{action 'changeState' dropStoryId 'dropped'}}>Drop</button>
+      </div>
+    </div>
+  {{/modal-dialog}}
+{{/if}}
 {{add-item-modal item="Story" showItemModal="showStoryModal"}}
 <div class="row">
   <div class="col-lg-3">
     {{#draggable-dropzone dropped="changeState" stateColumn = "icebox"}}
-      {{dashboard-story-panel storyType="Icebox" stories=model.project.icebox}}
+      {{dashboard-story-panel storyType="Icebox" stories=model.project.icebox warning='showDropModal'}}
     {{/draggable-dropzone}}
   </div>
   <div class="col-lg-3">
     {{#draggable-dropzone dropped="changeState" stateColumn = "todo"}}
-      {{dashboard-story-panel storyType="Todo" stories=model.project.todo}}
+      {{dashboard-story-panel storyType="Todo" stories=model.project.todo warning='showDropModal'}}
     {{/draggable-dropzone}}
   </div>
   <div class="col-lg-3">
     {{#draggable-dropzone dropped="changeState" stateColumn = "doing"}}
-      {{dashboard-story-panel storyType="Doing" stories=model.project.doing}}
+      {{dashboard-story-panel storyType="Doing" stories=model.project.doing warning='showDropModal'}}
     {{/draggable-dropzone}}
   </div>
   <div class="col-lg-3">
     {{#draggable-dropzone dropped="changeState" stateColumn = "done"}}
-      {{dashboard-story-panel storyType="Done" stories=model.project.done}}
+      {{dashboard-story-panel storyType="Done" stories=model.project.done warning='showDropModal'}}
     {{/draggable-dropzone}}
   </div>
 </div>

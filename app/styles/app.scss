@@ -5,6 +5,10 @@
   text-align: center;
 }
 
+.pad-top {
+  padding-top: 8%;
+}
+
 .modal-form {
   color: #FFF;
 }
@@ -16,6 +20,12 @@
 .ember-modal-dialog {
   width: 40%;
   height: 60%;
+  background-color: #222;
+}
+
+.ember-small-modal {
+  width: 25%;
+  height: 30%;
   background-color: #222;
 }
 
