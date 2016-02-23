@@ -1,5 +1,10 @@
+{{#link-to "projects.new" class="btn btn-success btn-large"}}
+  <span class="glyphicon glyphicon-plus"></span> New Project
+{{/link-to}}
 <ul>
   {{#each model as |project|}}
     <li>{{link-to project.name "projects.project" project}}</li>
+  {{else}}
+    No Projects Yet! You should create one
   {{/each}}
 </ul>
