@@ -1,0 +1,37 @@
+@import "ember-modal-dialog/ember-modal-structure";
+@import "ember-modal-dialog/ember-modal-appearance";
+
+.text-center {
+  text-align: center;
+}
+
+.modal-form {
+  color: #FFF;
+}
+
+#modal-container {
+  width: 100%;
+}
+
+.ember-modal-dialog {
+  width: 40%;
+  height: 60%;
+  background-color: #222;
+}
+
+.no-gutter > [class*='col-'] {
+  padding-right:0;
+  padding-left:0;
+}
+
+.project-status {
+  color: #0ce3ac;
+}
+
+.full-width {
+  min-width: 100%;
+}
+
+.modal-input {
+  box-sizing:border-box
+}

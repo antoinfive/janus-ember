@@ -1,0 +1,31 @@
+{{#if storyModal}}
+  {{#modal-dialog translucentOverlay=true close='closeStoryModal' overlay-class='modal-form'}}
+    <div id="modal-container" class="container">
+      {{manage-story story=model.story onSubmit = "createStory"}}
+    </div>
+  {{/modal-dialog}}
+{{/if}}
+{{add-item-modal item="Story" showItemModal="showStoryModal"}}
+<div class="row">
+  <div class="col-lg-3">
+    {{#draggable-dropzone dropped="changeState" stateColumn = "icebox"}}
+      {{dashboard-story-panel storyType="Icebox" stories=model.project.icebox}}
+    {{/draggable-dropzone}}
+  </div>
+  <div class="col-lg-3">
+    {{#draggable-dropzone dropped="changeState" stateColumn = "todo"}}
+      {{dashboard-story-panel storyType="Todo" stories=model.project.todo}}
+    {{/draggable-dropzone}}
+  </div>
+  <div class="col-lg-3">
+    {{#draggable-dropzone dropped="changeState" stateColumn = "doing"}}
+      {{dashboard-story-panel storyType="Doing" stories=model.project.doing}}
+    {{/draggable-dropzone}}
+  </div>
+  <div class="col-lg-3">
+    {{#draggable-dropzone dropped="changeState" stateColumn = "done"}}
+      {{dashboard-story-panel storyType="Done" stories=model.project.done}}
+    {{/draggable-dropzone}}
+  </div>
+</div>
+{{outlet}}

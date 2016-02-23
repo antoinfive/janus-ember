@@ -28,7 +28,11 @@ Router.map(function() {
   });
   this.route('login');
   this.route('dashboard', function() {
-    this.route('project', {path: "/:project_id"});
+    this.route('project', {path: "/:project_id"}, function() {
+      this.route('stories');
+      this.route('snippets');
+      this.route('bookmarks');
+    });
   });
 });
 
