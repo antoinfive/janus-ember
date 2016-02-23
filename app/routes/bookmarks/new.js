@@ -15,7 +15,6 @@ export default Ember.Route.extend({
         project_ids.push(project.id);
       });
       bookmark.set("jankiness", project_ids.toString());
-      debugger;
       bookmark.save().then((bookmark) => {
         bookmark.get('tags').invoke('save');
         this.transitionTo('bookmarks.bookmark', bookmark.id);

@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   actions:{
-    editProject: function(){
+    editStory: function(){
       let story = this.modelFor(this.routeName);
       story.save();
     },

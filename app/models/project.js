@@ -7,6 +7,7 @@ export default DS.Model.extend({
   description: DS.attr('string'),
   user: DS.belongsTo('user'),
   bookmarks: DS.hasMany('bookmark'),
+  snippets: DS.hasMany('snippet'),
   stories: DS.hasMany('story'),
   github: function(){
     if (this.get("github_link").includes("http://")){

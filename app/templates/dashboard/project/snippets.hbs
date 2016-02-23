@@ -1,0 +1,22 @@
+{{#if snippetModal}}
+  {{#modal-dialog translucentOverlay=true close='closeSnippetModal' overlay-class='modal-form'}}
+    <div id="modal-container" class="container">
+      {{manage-snippet-light snippet = model.snippet onSubmit="createSnippet"}}
+    </div>
+  {{/modal-dialog}}
+{{/if}}
+{{add-item-modal item="Snippet" showItemModal="showSnippetModal"}}
+<div class="panel panel-primary">
+  <div class="panel-body">
+    <ul class="list-group">
+      {{#each model.project.snippets as |snippet|}}
+        <li class="list-group-item">
+          {{snippet-preview snippet=snippet}}
+        </li>
+      {{else}}
+        <li class="list-group-item">No Snippets for This Project</li>
+      {{/each}}
+    </ul>
+  </div>
+</div>
+{{outlet}}

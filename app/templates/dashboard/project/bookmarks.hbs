@@ -1,0 +1,32 @@
+{{#if bookmarkModal}}
+  {{#modal-dialog translucentOverlay=true close='closeBookmarkModal' overlay-class='modal-form'}}
+    <div id="modal-container" class="container">
+      {{manage-bookmark-light bookmark = model.bookmark onSubmit="createBookmark"}}
+    </div>
+  {{/modal-dialog}}
+{{/if}}
+{{add-item-modal item="Bookmark" showItemModal="showBookmarkModal"}}
+<div class="panel panel-primary">
+  <div class="panel-body">
+    <ul class="list-group">
+      {{#each model.project.bookmarks as |bookmark|}}
+        <li class="list-group-item">
+          <div class="row">
+            <div class="col-md-4">
+              <strong><a href="{{bookmark.bookmarkLink}}">{{bookmark.title}}</a></strong>
+            </div>
+            <div class="col-md-4">
+              <strong> - {{bookmark.link}} - </strong>
+            </div>
+            <div class="col-md-4">
+              {{link-to "Edit Bookmark" "bookmarks.bookmark" bookmark class="btn btn-warning full-width"}}
+            </div>
+          </div>
+        </li>
+      {{else}}
+        <li class="list-group-item">No Bookmarks for This Project</li>
+      {{/each}}
+    </ul>
+  </div>
+</div>
+{{outlet}}
