@@ -1,0 +1,17 @@
+<div class="bs-component">
+  <div class="list-group">
+    <div class="list-group-item active">
+      <strong>Bookmarks</strong>
+    </div>
+    {{#each bookmarks as |bookmark|}}
+      <div class="list-group-item">
+        <!-- {{project-preview project=project}} -->
+      </div>
+    {{else}}
+      {{#link-to "bookmarks.new" class="btn btn-success btn-large"}}
+        <span class="glyphicon glyphicon-plus"></span> New Bookmark
+      {{/link-to}}
+    {{/each}}
+  </div>
+</div>
+{{yield}}

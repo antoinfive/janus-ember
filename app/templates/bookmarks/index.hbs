@@ -1,5 +1,11 @@
+{{#link-to "bookmarks.new" class="btn btn-success btn-large"}}
+  <span class="glyphicon glyphicon-plus"></span> New Bookmark
+{{/link-to}}
+
 <ul>
   {{#each model as |bookmark|}}
     <li>{{link-to bookmark.title "bookmarks.bookmark" bookmark}}</li>
+  {{else}}
+    There are no Bookmarks - you should add one!
   {{/each}}
 </ul>

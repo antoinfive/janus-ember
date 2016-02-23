@@ -1,5 +1,11 @@
+{{#link-to "snippets.new" class="btn btn-success btn-large"}}
+  <span class="glyphicon glyphicon-plus"></span> New Snippet
+{{/link-to}}
+
 <ul>
   {{#each model as |aSnippet|}}
     {{snippet-preview snippet=aSnippet full=false}}
+  {{else}}
+    There are no snippets - you should add one!
   {{/each}}
 </ul>

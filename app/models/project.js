@@ -26,7 +26,11 @@ export default DS.Model.extend({
         complete += story.get('points');
       }
     });
-    return Math.round(complete / total * 100);
+    if (total === 0) {
+      return 0;
+    } else {
+      return Math.round(complete / total * 100);
+    }
   }.property('stories.@each.state'),
   icebox: function(){
     return this.get("stories").map((story)=>{if (story.get('state') === "icebox"){return story;}}).filter(function(val) { return val !== undefined; });
