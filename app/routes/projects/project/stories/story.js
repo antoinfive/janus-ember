@@ -10,7 +10,7 @@ export default Ember.Route.extend({
       let story = this.modelFor(this.routeName);
       let project = this.modelFor('projects.project');
       story.destroyRecord();
-      this.transitionTo('dashboard.project', project);
+      this.transitionTo('projects.project', project);
     }
   }
 });
