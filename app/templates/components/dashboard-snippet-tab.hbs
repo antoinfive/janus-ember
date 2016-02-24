@@ -3,9 +3,9 @@
     <div class="list-group-item active">
       <strong>Snippets</strong>
     </div>
-    {{#each projects as |project|}}
+    {{#each snippets as |snippet|}}
       <div class="list-group-item">
-        <!-- {{project-preview project=project}} -->
+        {{snippet-preview snippet=snippet}}
       </div>
     {{else}}
       {{#link-to "snippets.new" class="btn btn-success btn-large"}}

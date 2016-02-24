@@ -8,6 +8,9 @@ export default Ember.Route.extend({
     });
   },
   actions: {
+    newStory(){
+      this.refresh();
+    },
     changeState(storyId, newState){
       this.store.findRecord('story', storyId).then((story)=>{
         story.set('state', newState);
@@ -19,7 +22,10 @@ export default Ember.Route.extend({
      let project = this.modelFor(this.routeName).project;
      story.set("project", project);
      story.save().then(()=>{
-       story = this.store.createRecord('story');
+       this.send('newStory');
+      //  this.model().then((newModel)=>{
+      //    this.modelFor(this.routeName) = newModel;
+      //  });
      });
    },
    editStory: function(){
@@ -30,7 +36,7 @@ export default Ember.Route.extend({
      let story = this.modelFor(this.routeName);
      let project = this.modelFor('projects.project');
      story.destroyRecord();
-     this.transitionTo('projects.project', project);
+     this.transitionTo('dashboard.project', project);
    }
   }
 });
