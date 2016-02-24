@@ -5,7 +5,17 @@
     </div>
     {{#each bookmarks as |bookmark|}}
       <div class="list-group-item">
-        <!-- {{project-preview project=project}} -->
+        <div class="row">
+          <div class="col-md-4">
+            <strong><a href="{{bookmark.bookmarkLink}}">{{bookmark.title}}</a></strong>
+          </div>
+          <div class="col-md-4">
+            <strong> - {{bookmark.link}} - </strong>
+          </div>
+          <div class="col-md-4">
+            {{link-to "Edit Bookmark" "bookmarks.bookmark" bookmark class="btn btn-warning full-width"}}
+          </div>
+        </div>
       </div>
     {{else}}
       {{#link-to "bookmarks.new" class="btn btn-success btn-large"}}
