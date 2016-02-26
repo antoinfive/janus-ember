@@ -36,6 +36,7 @@ Router.map(function() {
       this.route('bookmarks');
     });
   });
+  this.route('splash', {path: "/"});
 });
 
 export default Router;
