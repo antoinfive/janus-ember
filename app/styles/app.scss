@@ -9,6 +9,11 @@ body {
   background-attachment: fixed;
 }
 
+.main {
+  max-width: 80%;
+  margin: 0 auto;
+}
+
 .text-center {
   text-align: center;
 }
@@ -67,8 +72,9 @@ body {
 }
 
 .navbar-default {
-  background-color: #0d1827;
+  background-color: transparent;
   border-color: transparent;
+  margin-bottom: 5px;
 }
 
 .bg-primary {
@@ -173,8 +179,8 @@ body {
 .list-group-item.active:focus {
   z-index: 2;
   color: #ffffff;
-  background-color: #6f7f94;
-  border-color: #6f7f94;
+  background-color: #28415b;
+  border-color: #28415b;
 }
 
 .panel-primary {
@@ -183,8 +189,8 @@ body {
 
 .panel-primary > .panel-heading {
   color: #ffffff;
-  background-color: #6f7f94;
-  border-color: #6f7f94;
+  background-color: #375a7f;
+  border-color: #375a7f;
 }
 
 .panel-primary > .panel-heading + .panel-collapse > .panel-body {
@@ -469,4 +475,9 @@ a.bg-success:focus {
   width: 60%;
   margin: 0 auto;
   background-color: rgba(48, 48, 48, .8)
+}
+
+.dashboard-nav {
+  padding-bottom: 10px;
+  padding-left: 10px;
 }

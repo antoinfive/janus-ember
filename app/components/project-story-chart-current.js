@@ -33,5 +33,15 @@ export default Ember.Component.extend({
         datasets.push(defaultData);
     }
     return datasets;
-  })
+  }),
+  options: {
+    animationSteps : 100,
+    animationEasing : "easeInOutQuart",
+    animateScale : true,
+    segmentStrokeColor : "#303030",
+    segmentStrokeWidth : 3,
+    tooltipFontSize: 12,
+    tooltipXOffset: 30,
+    tooltipTemplate: "<%if (label){%><%=label%>: <%}%><%= value %>",
+  }
 });
